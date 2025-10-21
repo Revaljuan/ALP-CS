@@ -18,6 +18,7 @@ User	/api/documents	POST	Tidak diizinkan
 Guest	/api/login	POST	Hanya untuk autentikasi awal
 
 💻 Cara Menjalankan Proyek
+
 1️⃣ Clone Repository
 git clone https://github.com/username/alp-otorisasi.git
 cd alp-otorisasi
