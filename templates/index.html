@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALP - Sistem Otorisasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        a.btn-google {
+            background-color: #db4437;
+            color: white;
+        }
+        a.btn-google:hover {
+            background-color: #c1351d;
+            color: white;
+        }
+        footer {
+            padding: 1rem;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+        <div class="text-center mb-4">
+            <h1 class="display-4">ALP - Demo Sistem Otorisasi</h1>
+            <p class="lead">Aplikasi REST API dengan otorisasi modern: JWT, OAuth2, RBAC & ABAC</p>
+        </div>
+
+        <div class="card text-dark bg-light p-4 mb-4 w-100" style="max-width: 600px;">
+            <h3 class="mb-3">API Endpoints</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>POST /api/login</strong> - Body: {"username":"...", "password":"..."}</li>
+                <li class="list-group-item"><strong>GET /api/documents</strong> - Header: Authorization: Bearer &lt;token&gt;</li>
+                <li class="list-group-item"><strong>POST /api/documents</strong> - Create document</li>
+                <li class="list-group-item"><strong>DELETE /api/documents/&lt;id&gt;</strong> - Delete document</li>
+                <li class="list-group-item"><strong>Google OAuth:</strong> /auth/login</li>
+            </ul>
+        </div>
+
+        <div class="d-flex flex-column gap-3 w-100" style="max-width: 300px;">
+            <a href="/login" class="btn btn-primary btn-lg w-100">Login with Username</a>
+            <a href="/auth/login_google" class="btn btn-google btn-lg w-100">Login with Google</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 ALP - Sistem Otorisasi | Demo Project
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

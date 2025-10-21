@@ -1,0 +1,7 @@
+flowchart LR
+  Client -->|username/password| API[Flask API]
+  Client -->|Google OAuth| Google[Google OAuth]
+  Google -->|id_token| API
+  API --> DB[(SQLite / SQLAlchemy)]
+  API -->|issues JWT| Client
+  API -->|enforces RBAC/ABAC| Resources[Documents]
