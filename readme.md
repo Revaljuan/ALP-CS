@@ -1,33 +1,44 @@
-ALP Sistem Otorisasi - Quick Start
+Sistem otorisasi berbasis Flask yang mengimplementasikan Role-Based Access Control (RBAC) dengan JWT Authentication.
+Proyek ini dikembangkan untuk memenuhi tugas Automatic Learning Project (ALP) pada topik Demo Sistem Otorisasi.
 
-1. Create virtualenv and install:
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
+🚀 Fitur Utama
+🔐 Login Sistem menggunakan username dan password
+🧾 Akses Dokumen berdasarkan peran pengguna (Admin / User)
+⚙️ JWT Authentication untuk keamanan API
+🚫 Middleware Authorization untuk memvalidasi token dan hak akses
+🌐 Frontend UI sederhana (HTML + Bootstrap)
+🧠 Aturan Access Policy berbasis peran dan atribut pengguna
+🧱 Struktur Folder
 
-2. (Optional) Set env vars:
-   export JWT_SECRET_KEY="your_jwt_secret"
-   export SECRET_KEY="your_flask_secret"
-   # For Google OAuth:
-   export GOOGLE_CLIENT_ID="..."
-   export GOOGLE_CLIENT_SECRET="..."
+⚖️ Daftar Access Policy
+Role	Resource	Action	Condition / Attribute
+Admin	/api/documents	GET, POST, DEL	Semua dokumen diizinkan
+User	/api/documents	GET	Hanya dokumen miliknya
+User	/api/documents	POST	Tidak diizinkan
+Guest	/api/login	POST	Hanya untuk autentikasi awal
 
-3. Run:
-   python app.py
-   # or
-   FLASK_APP=app.py flask run
+💻 Cara Menjalankan Proyek
+1️⃣ Clone Repository
+git clone https://github.com/username/alp-otorisasi.git
+cd alp-otorisasi
 
-4. Test (examples):
-   - POST /api/login
-     body: {"username":"alice","password":"alicepass"}
-   - GET /api/documents
-     header: Authorization: Bearer <token>
-   - Create doc: POST /api/documents
-     body: {"title":"...", "content":"...", "department":"Sales", "premium":false}
-   - Google OAuth: visit /auth/login in browser
+2️⃣ Buat Virtual Environment
+python -m venv venv
+source venv/bin/activate   # macOS/Linux
+venv\Scripts\activate      # Windows
 
-Seed users (from seed_data):
- - admin / adminpass  (role: admin, dept: IT)
- - manager / managerpass (role: manager, dept: Sales)
- - alice / alicepass (role: user, dept: Sales)
- - bob / bobpass (role: user, dept: IT)
+3️⃣ Install Dependensi
+pip install -r requirements.txt
+
+4️⃣ Jalankan Aplikasi
+flask run --app app --debug
+
+5️⃣ Akses di Browser
+Buka: 👉 http://127.0.0.1:5000
+
+🧠 Teknologi yang Digunakan
+Python 3.12
+Flask
+Flask-JWT-Extended
+HTML, CSS (Bootstrap)
+SQLite
